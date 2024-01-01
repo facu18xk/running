@@ -3,6 +3,7 @@
     --pinky: #FB258B;
     --han-purple: #5025FB;
     --white: #fff;
+    --gray: #4c4c4c;
 }
 
 html {
@@ -24,7 +25,7 @@ body {
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 10em;
+    font-size: 8rem;
     padding: 50px 0;
 }
 
@@ -37,7 +38,6 @@ span {
     padding: 0 20vw 0 5vw;
     display: flex;
     flex-wrap: wrap;
-    flex: 1;
     justify-content: space-between;
     align-items: center;
 }
@@ -60,17 +60,116 @@ span {
 
 .main {
     margin: 0 8vw;
+    max-height: 640px;
     flex: 1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .plans {
+    flex: 0 1 5vw;
     display: flex;
+    flex-wrap: wrap;
+    gap: 2vh;
     flex-direction: column;
     align-items: flex-end;
 }
 
+.plans--title {
+    margin-bottom: 0;
+    align-self: flex-start;
+    font-size: 1.7rem;
+}
+
+.plan>* {
+    margin: 0;
+}
+
+.plan {
+    color: var(--gray);
+}
+
+.plan--title {
+    border-bottom: 1px solid var(--gray);
+}
+
+.plan--active>* {
+    color: var(--white);
+}
+
+.plan--active .plan--title {
+    border-bottom: 1px solid var(--white);
+}
+
+
+.mid {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.mid--triangle {
+    width: 25vw;
+    height: 70vh;
+    background: var(--background);
+    clip-path: polygon(0% 20%, 80% 100%, 100% 0%);
+}
+
+.wrap {
+    filter: drop-shadow(1px 1px 2px cyan);
+    z-index: -10;
+    position: absolute;
+}
+
+#title span {
+    position: absolute;
+    top: 14vh;
+    left: 16vw;
+}
+
+.mid--line {
+    position: absolute;
+    left: 0;
+    top: 40vh;
+    height: 1px;
+    width: 65vh;
+    background-color: rgb(199, 41, 41);
+    box-shadow: 2px 2px 10px red;
+    transform: rotate(55deg);
+}
+
 .info {
-    flex: 0 1 500px
+    margin: 4vh 0 0 0;
+    display: flex;
+    flex: 0 1 35vw;
+
+    flex-direction: column;
+    gap: 4vh;
+}
+
+.info--title {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+.info--details {
+    font-size: 1.4rem;
+    margin-top: 0;
+}
+
+.info--download {
+    width: 170px;
+    height: 63px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: -5px -5px 1px red, 5px 5px 1px cyan;
 }
