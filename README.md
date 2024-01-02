@@ -1,4 +1,4 @@
-# Running Plans Downloader
+# Running Plan Downloader
 ![Preview](preview.png)
 ## Overview
 
