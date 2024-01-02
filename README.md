@@ -13,19 +13,6 @@ The Running Plan Downloader is a simple web application that enables users to do
 - **User-Friendly Interface:** Provides an intuitive and responsive web interface for users to easily browse and download running plans.
 
 
-## How to Use
-
-1. **Search for Running Plans:**
-- Use the search bar to enter keywords related to the running plans you are looking for.
-- Click the "Search" button to fetch relevant plans from Wikipedia.
-
-2. **Browse Running Plans:**
-- Scroll through the list of running plans displayed on the page.
-- Click on a plan to view more details.
-
-3. **Download Running Plans:**
-- Once you find a suitable running plan, click the "Download" button to save it to your device.
-
 ## What I Learned
 
 - **API Integration:** Explored and implemented the integration of external APIs into a web application.
