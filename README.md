@@ -2,7 +2,7 @@
 ![Preview](preview.png)
 ## Overview
 
-The Running Plans Downloader is a simple web application that enables users to download running plans using the Wikipedia API and Vanilla JavaScript. This project was created to explore the integration of web development concepts with an external API, providing a user-friendly interface for retrieving and downloading running plans.
+The Running Plan Downloader is a simple web application that enables users to download running plans using the Wikipedia API and Vanilla JavaScript. This project was created to explore the integration of web development concepts with an external API, providing a user-friendly interface for retrieving and downloading running plans.
 
 ## Features
 
