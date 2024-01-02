@@ -41,7 +41,4 @@ The Running Plans Downloader is a simple web application that enables users to d
 
 Special thanks to the Wikipedia API for providing a rich source of information on running plans and Nike running club for the free plans.
 
-## License
-
-This project is licensed under the MIT License - see the `LICENSE.md` file for details.
 
