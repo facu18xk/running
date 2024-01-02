@@ -7,42 +7,62 @@ const PLANS = {
 }
 const KILOMETERS = ["5k", "10k", "21k", "42k"];
 //By default the active distance is 5k, 0 is because is the first item in the object
-let activeDistance = 0;
+const DEFAULT_ACTIVE_DISTANCE = 0;
+let activeDistance = DEFAULT_ACTIVE_DISTANCE;
 const keys = Object.keys(PLANS);
-// Render user desire distance
-//select the distances buttons
+//select elements
 let distances = document.querySelectorAll(".plan");
-let distancesContainer = document.querySelector(".plans");
 let distance = document.querySelector("#title span");
 let description = document.querySelector(".info--details");
 let download = document.querySelector(".info--download");
 let title = document.querySelector(".info--title");
-// Add and remove active element
-const active = (clickedElement) => {
+/**
+ *  Add the styles by adding the classes of the active distance 
+ * @param {*} clickedElement 
+ */
+const updateCurrentDistance = clickedElement => {
+    distances[clickedElement].classList.add("plan--active");
+    distances[activeDistance].classList.remove("plan--active");
+    activeDistance = clickedElement;
+}
+/**
+ * Change the dom's elements details 
+ * @param {*} clickedElement 
+ */
+const updatePlanDetails = clickedElement => {
+    //change the 3d text 
+    distance.innerText = KILOMETERS[clickedElement];
+    //Change the download plan file to its corresponding
+    download.setAttribute("href", PLANS[keys[clickedElement]]);
+    title.innerText = `Get ready for ${KILOMETERS[clickedElement]}`;
+}
+/**
+ * Update the description by fetching data from the wikipedia api
+ * @param {*} clickedElement 
+ */
+const updateDescription = clickedElement => {
+    //change the description
+    let link = `https://en.wikipedia.org/api/rest_v1/page/summary/${keys[clickedElement]}?redirect=false`;
+    fetch(link).then(response => {
+        if (!response.ok)
+            throw new Error("Fetching failed");
+        return response.json()
+    })
+        .then(res => {
+            description.innerText = res.extract;
+        }).catch(err => console.error(err));
+}
+const updateUi = (clickedElement) => {
     if (clickedElement != activeDistance) {
-        distances[clickedElement].classList.add("plan--active");
-        distances[activeDistance].classList.remove("plan--active");
-        activeDistance = clickedElement;
-        //change the 3d text 
-        distance.innerText = KILOMETERS[clickedElement];
-        download.setAttribute("href", PLANS[keys[clickedElement]]);
-        title.innerText = `Get ready for ${KILOMETERS[clickedElement]}`;
-        //change the description
-        let link = `https://en.wikipedia.org/api/rest_v1/page/summary/${keys[clickedElement]}?redirect=false`;
-        fetch(link).then(response => response.json())
-            .then(res => {
-                description.innerText = res.extract;
-            });
+        updateCurrentDistance(clickedElement);
+        updatePlanDetails(clickedElement);
+        updateDescription(clickedElement);
     }
 }
-
-//Change css class for active distance
-//Change description data fetched from wikipedia
-//CHange download link plan
 
 //Add event listeners 
 distances.forEach((element, index) => {
     element.addEventListener("click", () => {
-        active(index);
+        updateUi(index);
     })
 })

@@ -1,7 +1,5 @@
 :root {
     --background: #252525;
-    --pinky: #FB258B;
-    --han-purple: #5025FB;
     --white: #fff;
     --gray: #4c4c4c;
 }
@@ -16,6 +14,7 @@ html {
 body {
     height: 100vh;
     display: flex;
+    margin: 0;
     flex-direction: column;
     background-color: var(--background);
     color: var(--white);
@@ -25,7 +24,7 @@ body {
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 8rem;
+    font-size: 6.5rem;
     padding: 50px 0;
 }
 
@@ -105,15 +104,15 @@ span {
 
 .mid {
     display: flex;
+    min-width: 400px;
     justify-content: center;
     position: relative;
     flex-shrink: 0;
-    flex-grow: 1;
 }
 
 .mid--triangle {
-    width: 25vw;
-    height: 70vh;
+    width: 300px;
+    height: 400px;
     background: var(--background);
     clip-path: polygon(0% 20%, 80% 100%, 100% 0%);
 }
@@ -126,19 +125,19 @@ span {
 
 #title span {
     position: absolute;
-    top: 14vh;
-    left: 16vw;
+    top: 50px;
+    left: 130px;
 }
 
 .mid--line {
     position: absolute;
-    left: 0;
-    top: 40vh;
+    left: -50px;
+    top: 238px;
     height: 1px;
-    width: 65vh;
+    width: 400px;
     background-color: rgb(199, 41, 41);
     box-shadow: 2px 2px 10px red;
-    transform: rotate(55deg);
+    transform: rotate(54deg);
 }
 
 .info {
@@ -156,7 +155,7 @@ span {
 }
 
 .info--details {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-top: 0;
 }
 
@@ -172,4 +171,27 @@ span {
     text-decoration: none;
     font-size: 1.1rem;
     box-shadow: -5px -5px 1px red, 5px 5px 1px cyan;
+}
+
+@media (max-width:860px) {
+    .main {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .mid {
+        min-height: 400px;
+    }
+
+    .plans--container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .info {
+        flex-grow: 1;
+    }
 }
